@@ -1,0 +1,16 @@
+{
+  "name": "hackyourtemperature",
+  "version": "1.0.0",
+  "description": "HackYourTemperature Application Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Anis Alkomem",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4"
+  }
+}
