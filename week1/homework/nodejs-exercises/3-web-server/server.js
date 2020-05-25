@@ -4,7 +4,7 @@ const fs = require("fs");
 // create a server
 const server = http.createServer(function (req, res) {
   if (req.url === "/") {
-    fs.readFile("./index.html", (err, content) => {
+    fs.readFile("./public/index.html", (err, content) => {
       if (!err) {
         res.writeHead(200, { "Content-Type": "text/html" });
         // res.write(); // Sends a response back to the client
@@ -13,7 +13,7 @@ const server = http.createServer(function (req, res) {
     });
   }
   if (req.url === "/script.js") {
-    fs.readFile("./script.js", (err, content) => {
+    fs.readFile("./public/script.js", (err, content) => {
       if (!err) {
         res.writeHead(200, { "Content-Type": "text/javascript" });
         // res.write(); // Sends a response back to the client
@@ -22,7 +22,7 @@ const server = http.createServer(function (req, res) {
     });
   }
   if (req.url === "/style.css") {
-    fs.readFile("./style.css", (err, content) => {
+    fs.readFile("./public/style.css", (err, content) => {
       if (!err) {
         res.writeHead(200, { "Content-Type": "text/css" });
         // res.write(); // Sends a response back to the client
