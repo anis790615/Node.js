@@ -1,64 +1,18 @@
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
 
 const router = express.Router();
-const app = express();
+// I decided to try out the mvc model, and although I don't have models, I moved all function to a controller folder, and exported their functions here
+const blogController = require("../controllers/blog");
 
 // SHow index.html
-router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public", "index.html"));
-});
+router.get("/", blogController.getMainPage);
 // Create post
-router.post("/blogs", (req, res) => {
-  const { title } = req.body;
-  const { content } = req.body;
-  if (fs.existsSync(path.join(__dirname, "../public", title))) {
-    return res.end("This post already exists!");
-  }
-  res.status(201);
-  res.setHeader("Content-Type", "application/json");
-  fs.writeFileSync(path.join(__dirname, "../public", title), content);
-  res.end("Post Created");
-});
+router.post("/blogs", blogController.createPost);
 // Update post
-router.put("/blogs", (req, res) => {
-  const { title } = req.body;
-  const { content } = req.body;
-  if (!fs.existsSync(path.join(__dirname, "../public", title))) {
-    res.status(404);
-    return res.end("This post does not exist!");
-  }
-  res.status(200);
-  res.setHeader("Content-Type", "application/json");
-  fs.writeFileSync(path.join(__dirname, "../public", title), content);
-  res.end("Post Updated");
-});
+router.put("/blogs", blogController.updatePost);
 // Delete post
-router.delete("/blogs/:title", (req, res) => {
-  if (!fs.existsSync(path.join(__dirname, "../public", req.params.title))) {
-    res.status(404);
-    return res.end("This post does not exist!");
-  }
-  fs.unlinkSync(path.join(__dirname, "../public", req.params.title));
-  res.end("Post Deleted");
-});
+router.delete("/blogs/:title", blogController.deletePost);
 // Read Post
-router.get("/blogs/:title", (req, res) => {
-  const { title } = req.params;
-  if (!fs.existsSync(path.join(__dirname, "../public", title))) {
-    res.status(404);
-    return res.end("This post does not exist!");
-  }
-  res.status(200);
-  res.setHeader("Content-Type", "text/html");
-  fs.readFile(path.join(__dirname, "../public", title), (err, content) => {
-    if (err) {
-      return res.end(err);
-    }
-    res.end(content);
-  });
-});
+router.get("/blogs/:title", blogController.getPost);
 
 module.exports = router;
-path.join(__dirname, "posts");
