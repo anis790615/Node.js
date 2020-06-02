@@ -21,3 +21,6 @@ app.use(weatherRoutes);
 
 const PORT = process.env.port || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT} `));
+
+// The working app can be seen at this link
+// https://hackyourtemperature-nodejs.herokuapp.com/
