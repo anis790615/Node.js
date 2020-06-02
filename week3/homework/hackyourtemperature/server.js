@@ -14,7 +14,8 @@ app.set("view engine", "hbs");
 // Use express parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+// Initialise a static folder
+app.use(express.static("public"));
 // Use routes
 app.use(weatherRoutes);
 

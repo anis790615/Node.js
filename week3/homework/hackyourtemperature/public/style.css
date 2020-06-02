@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  background: ghostwhite;
+  width: 100vw;
+  height: 100%;
+}
+main {
+  max-width: 768px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+}
+input {
+  width: 100%;
+  font: inherit;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  border: none;
+  border-bottom: solid 1px grey;
+  background: transparent;
+  /* color: whitesmoke; */
+  outline: none;
+}
+input:focus {
+  border-bottom: solid 2px teal;
+}
+button {
+  border: none;
+  padding: 0.5rem 2rem;
+  background: teal;
+  color: white;
+  cursor: pointer;
+}
+button:hover,
+button:active,
+button:focus {
+  background: rgb(14, 94, 94);
+}
+.weather {
+  width: 100%;
+  text-align: center;
+}
+.weather-info,
+.weather-error {
+  width: 300px;
+  max-width: 90%;
+  margin: 1rem auto;
+
+  padding: 1rem;
+}
+.weather-info {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+  background: rgb(172, 238, 247);
+}
+.city {
+  color: white;
+  text-shadow: 3px 3px 3px teal;
+}
+.description {
+  color: gray;
+}
+.temp {
+  font-size: 1.2rem;
+}
+.weather-error {
+  color: red;
+  text-shadow: 3px 3px 3px white;
+}

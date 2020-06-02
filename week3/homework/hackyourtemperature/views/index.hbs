@@ -1,4 +1,20 @@
-<form action="/weather" method="post">
-  <input type="text" name="cityName">
-  <button type="submit">Add City</button>
-</form>
+<main>
+  <form action="/weather" method="post">
+    <input type="text" name="cityName" placeholder="Enter a City">
+    <button type="submit">Add City</button>
+  </form>
+  <div class="weather">
+    {{#if weatherData}}
+    <div class="weather-info">
+      <h2 class="city">{{cityName}}</h2>
+      <p class="description">{{description}}</p>
+      <p class="temp">{{temp}}°C</p>
+      <img src={{iconUrl}} alt="">
+    </div>
+    {{else}}
+    <div class="weather-error">
+      <h3>{{message}}</h3>
+    </div>
+    {{/if}}
+  </div>
+</main>
