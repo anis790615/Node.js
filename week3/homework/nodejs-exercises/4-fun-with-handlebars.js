@@ -1,5 +1,5 @@
 const Handlebars = require("handlebars");
-// The above import is for usage in node environment. I tested it in the browser as well, for which an index page was made in the same folder and the import above should be commneted out.
+// The above import is for usage in node environment. I tested it in the browser as well, for which an index page was made in the same folder and the import above should be commented out.
 function getRandomWord(array) {
   return array[Math.floor(Math.random() * 7)];
 }
